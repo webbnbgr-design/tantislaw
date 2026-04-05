@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Δικηγορικό Γραφείο Τάντη | Νομικές Υπηρεσίες από το 1973</title>
+    <!-- Google Fonts: Outfit & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            50: '#f2f5f9',
+                            100: '#e1e8f0',
+                            200: '#c8d5e5',
+                            300: '#a1b8d3',
+                            400: '#7394bc',
+                            500: '#5375a3',
+                            600: '#415d89',
+                            700: '#364b6f',
+                            800: '#30415d',
+                            900: '#0a192f',
+                            950: '#071121',
+                        },
+                        accent: {
+                            blue: '#3b82f6',
+                            gold: '#d4af37',
+                            electric: '#0066ff',
+                        }
+                    },
+                    borderRadius: {
+                        '2xl': '1.5rem',
+                        '3xl': '2rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .glass-dark {
+            background: rgba(10, 25, 47, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-white text-navy-900 antialiased">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-accent-electric rounded-xl flex items-center justify-center text-white shadow-lg shadow-accent-electric/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16 20 20"/><path d="M2 20h20"/><path d="M7 20v-5"/><path d="M11 20v-7"/><path d="M15 20v-11"/><path d="M19 20v-3"/><path d="M22 10V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-xl tracking-tight leading-none text-navy-900">Τάντης <span class="text-accent-electric">&</span> Συνεργάτες</span>
+                    <span class="text-[10px] uppercase tracking-[0.2em] font-semibold mt-1 text-navy-500">Δικηγορικό Γραφείο • Από το 1973</span>
+                </div>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-10">
+                <a href="#home" class="text-sm font-semibold text-navy-700 hover:text-accent-electric transition-colors">Αρχική</a>
+                <a href="#about" class="text-sm font-semibold text-navy-700 hover:text-accent-electric transition-colors">Η Εταιρεία</a>
+                <a href="#services" class="text-sm font-semibold text-navy-700 hover:text-accent-electric transition-colors">Τομείς Δικαίου</a>
+                <a href="#contact" class="bg-navy-900 text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-accent-electric transition-all shadow-lg active:scale-95">Επικοινωνία</a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button class="md:hidden p-2 text-navy-900" onclick="toggleMobileMenu()">
+                <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] hidden flex-col p-8">
+        <div class="flex justify-end mb-12">
+            <button onclick="toggleMobileMenu()" class="text-navy-900">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+            </button>
+        </div>
+        <div class="flex flex-col gap-8 text-center">
+            <a href="#home" onclick="toggleMobileMenu()" class="text-3xl font-display font-bold text-navy-900">Αρχική</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="text-3xl font-display font-bold text-navy-900">Η Εταιρεία</a>
+            <a href="#services" onclick="toggleMobileMenu()" class="text-3xl font-display font-bold text-navy-900">Τομείς Δικαίου</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="bg-accent-electric text-white py-5 rounded-full font-bold text-xl uppercase tracking-widest mt-4 shadow-xl">Επικοινωνία</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-navy-950">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Modern Architecture" class="w-full h-full object-cover opacity-20 scale-105">
+            <div class="absolute inset-0 bg-gradient-to-b from-navy-950/50 via-navy-950 to-navy-950"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+            <div class="max-w-4xl">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-electric/10 text-accent-electric text-xs font-bold uppercase tracking-[0.2em] mb-8 border border-accent-electric/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                    Νομική Αριστεία από το 1973
+                </div>
+                
+                <h1 class="text-5xl lg:text-8xl font-display font-bold text-white leading-[1.1] mb-8">
+                    Δικηγορικό Γραφείο <br>
+                    <span class="text-gradient">Τάντη & Συνεργάτες</span>
+                </h1>
+
+                <p class="text-xl lg:text-2xl text-navy-200 mb-12 leading-relaxed font-light max-w-2xl">
+                    Παράδοση και Καινοτομία στη Νομική Εκπροσώπηση. Συνδυάζουμε την πολυετή εμπειρία με τις σύγχρονες τεχνολογικές απαιτήσεις του δικαίου.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center gap-6">
+                    <a href="#contact" class="w-full sm:w-auto bg-accent-electric text-white px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-blue-600 transition-all shadow-2xl shadow-accent-electric/30 flex items-center justify-center gap-3 group">
+                        Νομική Συμβουλή
+                        <svg class="group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                    <a href="#services" class="w-full sm:w-auto bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-white/20 transition-all text-center">
+                        Τομείς Δικαίου
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-24 items-center">
+                <div class="relative">
+                    <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative z-10">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" alt="Modern Office" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-10 -right-10 w-72 h-72 bg-accent-electric/5 -z-0 rounded-full blur-3xl"></div>
+                    
+                    <div class="absolute -bottom-6 -left-6 bg-navy-900 p-10 rounded-2xl text-white shadow-2xl z-20 max-w-xs border border-white/10">
+                        <div class="text-5xl font-display font-bold mb-2 text-accent-electric">50+</div>
+                        <div class="text-xs uppercase tracking-[0.2em] font-bold text-navy-300">Χρόνια Εμπειρίας</div>
+                        <p class="text-sm text-navy-100 mt-4 font-light leading-relaxed">Συνεχής παρουσία και προσφορά στη νομική επιστήμη από το 1973.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-sm font-bold text-accent-electric uppercase tracking-[0.3em] mb-6">Η Εταιρεία</h2>
+                    <h3 class="text-4xl lg:text-6xl font-display font-bold text-navy-900 mb-10 leading-tight">
+                        Παράδοση που Εμπνέει <br>
+                        <span class="text-accent-electric">Εμπιστοσύνη</span>
+                    </h3>
+                    
+                    <div class="space-y-8 text-navy-700 leading-relaxed text-lg font-light">
+                        <p>
+                            Το γραφείο μας ιδρύθηκε το 1973 από τον <span class="font-semibold text-navy-900 underline decoration-accent-electric/30">Φίλιππο Τάντη</span>, θέτοντας τις βάσεις για μια πορεία βασισμένη στο ήθος, την επιστημονική αρτιότητα και την απόλυτη αφοσίωση στον εντολέα.
+                        </p>
+                        <p>
+                            Σήμερα, η δεύτερη γενιά, ο <span class="font-semibold text-navy-900">Παύλος Τάντης</span> και ο <span class="font-semibold text-navy-900">Γεώργιος Τάντης</span>, συνεχίζουν αυτή την παράδοση, εξελίσσοντας τις υπηρεσίες μας στις σύγχρονες απαιτήσεις της ψηφιακής εποχής.
+                        </p>
+                        <p>
+                            Ο Γεώργιος Τάντης, ως Δικηγόρος παρ' Αρείω Πάγω, cDPO και LegalTech expert, ηγείται του τομέα της προστασίας δεδομένων και της νομικής τεχνολογίας.
+                        </p>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-10 mt-16">
+                        <div class="flex items-start gap-5">
+                            <div class="w-12 h-12 bg-navy-50 rounded-xl flex items-center justify-center text-accent-electric shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-900 mb-2">Ιστορική Διαδρομή</h4>
+                                <p class="text-sm text-navy-500">Πάνω από 5 δεκαετίες επιτυχημένης δικηγορίας.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-5">
+                            <div class="w-12 h-12 bg-navy-50 rounded-xl flex items-center justify-center text-accent-electric shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14.5 2 14.5 7.5 20 7.5"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-900 mb-2">Δικαστική Εκπροσώπηση</h4>
+                                <p class="text-sm text-navy-500">Παρουσία σε όλα τα επίπεδα της δικαιοσύνης.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-32 bg-navy-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-24">
+                <h2 class="text-sm font-bold text-accent-electric uppercase tracking-[0.3em] mb-6">Τομείς Δικαίου</h2>
+                <h3 class="text-4xl lg:text-6xl font-display font-bold text-navy-900">Εξειδικευμένες Υπηρεσίες</h3>
+                <div class="w-24 h-1.5 bg-accent-electric mx-auto mt-8 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- Card 1 -->
+                <div class="bg-white p-12 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 group border border-navy-100">
+                    <div class="mb-10 w-16 h-16 bg-navy-50 rounded-2xl flex items-center justify-center text-accent-electric group-hover:bg-accent-electric group-hover:text-white transition-all duration-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16 20 20"/><path d="M2 20h20"/><path d="M7 20v-5"/><path d="M11 20v-7"/><path d="M15 20v-11"/><path d="M19 20v-3"/><path d="M22 10V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v16"/></svg>
+                    </div>
+                    <h4 class="text-2xl font-display font-bold text-navy-900 mb-6">Αστικό Δίκαιο</h4>
+                    <p class="text-navy-500 leading-relaxed mb-10 text-sm font-light">
+                        Ολοκληρωμένη υποστήριξη σε υποθέσεις εμπραγμάτου, ενοχικού και κληρονομικού δικαίου.
+                    </p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3 text-xs font-bold text-navy-800 uppercase tracking-wider">
+                            <div class="w-2 h-2 bg-accent-electric rounded-full"></div> Ακίνητα
+                        </li>
+                        <li class="flex items-center gap-3 text-xs font-bold text-navy-800 uppercase tracking-wider">
+                            <div class="w-2 h-2 bg-accent-electric rounded-full"></div> Συμβάσεις
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-accent-electric font-bold text-xs uppercase tracking-widest group-hover:gap-4 transition-all">
+                        Περισσότερα <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-12 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 group border border-navy-100">
+                    <div class="mb-10 w-16 h-16 bg-navy-50 rounded-2xl flex items-center justify-center text-accent-electric group-hover:bg-accent-electric group-hover:text-white transition-all duration-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    </div>
+                    <h4 class="text-2xl font-display font-bold text-navy-900 mb-6">Εμπορικό Δίκαιο</h4>
+                    <p class="text-navy-500 leading-relaxed mb-10 text-sm font-light">
+                        Νομική κάλυψη επιχειρήσεων, εταιρικό δίκαιο και εμπορικές συμβάσεις.
+                    </p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3 text-xs font-bold text-navy-800 uppercase tracking-wider">
+                            <div class="w-2 h-2 bg-accent-electric rounded-full"></div> Σύσταση Εταιρειών
+                        </li>
+                        <li class="flex items-center gap-3 text-xs font-bold text-navy-800 uppercase tracking-wider">
+                            <div class="w-2 h-2 bg-accent-electric rounded-full"></div> Εμπορικά Σήματα
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-accent-electric font-bold text-xs uppercase tracking-widest group-hover:gap-4 transition-all">
+                        Περισσότερα <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-12 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 group border border-navy-100">
+                    <div class="mb-10 w-16 h-16 bg-navy-50 rounded-2xl flex items-center justify-center text-accent-electric group-hover:bg-accent-electric group-hover:text-white transition-all duration-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h4 class="text-2xl font-display font-bold text-navy-900 mb-6">Προστασία DPO</h4>
+                    <p class="text-navy-500 leading-relaxed mb-10 text-sm font-light">
+                        Συμμόρφωση με τον GDPR, υπηρεσίες cDPO και διαχείριση κινδύνων δεδομένων.
+                    </p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3 text-xs font-bold text-navy-800 uppercase tracking-wider">
+                            <div class="w-2 h-2 bg-accent-electric rounded-full"></div> GDPR Audit
+                        </li>
+                        <li class="flex items-center gap-3 text-xs font-bold text-navy-800 uppercase tracking-wider">
+                            <div class="w-2 h-2 bg-accent-electric rounded-full"></div> Data Mapping
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-accent-electric font-bold text-xs uppercase tracking-widest group-hover:gap-4 transition-all">
+                        Περισσότερα <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white p-12 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 group border border-navy-100">
+                    <div class="mb-10 w-16 h-16 bg-navy-50 rounded-2xl flex items-center justify-center text-accent-electric group-hover:bg-accent-electric group-hover:text-white transition-all duration-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="15" x2="23" y2="15"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="15" x2="4" y2="15"/></svg>
+                    </div>
+                    <h4 class="text-2xl font-display font-bold text-navy-900 mb-6">LegalTech</h4>
+                    <p class="text-navy-500 leading-relaxed mb-10 text-sm font-light">
+                        Εξειδικευμένες νομικές συμβουλές για τεχνολογικές λύσεις και smart contracts.
+                    </p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3 text-xs font-bold text-navy-800 uppercase tracking-wider">
+                            <div class="w-2 h-2 bg-accent-electric rounded-full"></div> Smart Contracts
+                        </li>
+                        <li class="flex items-center gap-3 text-xs font-bold text-navy-800 uppercase tracking-wider">
+                            <div class="w-2 h-2 bg-accent-electric rounded-full"></div> AI Compliance
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-accent-electric font-bold text-xs uppercase tracking-widest group-hover:gap-4 transition-all">
+                        Περισσότερα <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-24">
+                <h2 class="text-sm font-bold text-accent-electric uppercase tracking-[0.3em] mb-6">Αξιολογήσεις</h2>
+                <h3 class="text-4xl lg:text-6xl font-display font-bold text-navy-900">Η Εμπιστοσύνη των Εντολέων μας</h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12">
+                <!-- Review 1 -->
+                <div class="bg-navy-50 p-12 rounded-3xl border border-navy-100 relative">
+                    <div class="absolute -top-6 left-12 w-12 h-12 bg-accent-electric flex items-center justify-center text-white rounded-2xl shadow-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    </div>
+                    <p class="text-navy-700 italic mb-10 leading-relaxed font-light text-lg">
+                        "Εξαιρετική επαγγελματική προσέγγιση. Με βοήθησαν σε μια πολύπλοκη εμπορική διαφορά με απόλυτη επιτυχία."
+                    </p>
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 rounded-full bg-navy-200 overflow-hidden">
+                            <img src="https://i.pravatar.cc/150?u=kon" alt="User">
+                        </div>
+                        <div>
+                            <div class="font-bold text-navy-900">Κωνσταντίνος Μ.</div>
+                            <div class="text-xs text-navy-400 uppercase tracking-widest font-semibold">Επιχειρηματίας</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-navy-50 p-12 rounded-3xl border border-navy-100 relative">
+                    <div class="absolute -top-6 left-12 w-12 h-12 bg-accent-electric flex items-center justify-center text-white rounded-2xl shadow-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    </div>
+                    <p class="text-navy-700 italic mb-10 leading-relaxed font-light text-lg">
+                        "Η εξειδίκευση του Γεωργίου Τάντη στο GDPR είναι μοναδική. Η εταιρεία μας αισθάνεται απόλυτα ασφαλής πλέον."
+                    </p>
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 rounded-full bg-navy-200 overflow-hidden">
+                            <img src="https://i.pravatar.cc/150?u=maria" alt="User">
+                        </div>
+                        <div>
+                            <div class="font-bold text-navy-900">Μαρία Π.</div>
+                            <div class="text-xs text-navy-400 uppercase tracking-widest font-semibold">Υπεύθυνη HR</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-navy-50 p-12 rounded-3xl border border-navy-100 relative">
+                    <div class="absolute -top-6 left-12 w-12 h-12 bg-accent-electric flex items-center justify-center text-white rounded-2xl shadow-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    </div>
+                    <p class="text-navy-700 italic mb-10 leading-relaxed font-light text-lg">
+                        "Ένα γραφείο με ήθος και παράδοση. Η εμπειρία τους στο αστικό δίκαιο είναι εμφανής από την πρώτη συνάντηση."
+                    </p>
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 rounded-full bg-navy-200 overflow-hidden">
+                            <img src="https://i.pravatar.cc/150?u=ioan" alt="User">
+                        </div>
+                        <div>
+                            <div class="font-bold text-navy-900">Ιωάννης Δ.</div>
+                            <div class="text-xs text-navy-400 uppercase tracking-widest font-semibold">Ιδιώτης</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 bg-navy-950 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-accent-electric/5 -skew-x-12 translate-x-1/4"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-sm font-bold text-accent-electric uppercase tracking-[0.3em] mb-6">Επικοινωνία</h2>
+                <h3 class="text-4xl lg:text-6xl font-display font-bold mb-10">Είμαστε εδώ για να σας <br> <span class="text-gradient">εκπροσωπήσουμε</span></h3>
+                
+                <p class="text-navy-200 text-lg lg:text-xl font-light mb-20 leading-relaxed max-w-2xl mx-auto">
+                    Επικοινωνήστε μαζί μας για να προγραμματίσουμε μια συνάντηση και να συζητήσουμε την υπόθεσή σας με απόλυτη εχεμύθεια.
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="glass-dark p-10 rounded-3xl flex flex-col items-center text-center group hover:bg-navy-900 transition-all">
+                        <div class="w-16 h-16 bg-accent-electric/10 rounded-2xl flex items-center justify-center text-accent-electric border border-accent-electric/20 mb-8 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div class="text-xs uppercase tracking-widest text-accent-electric font-bold mb-3">Διεύθυνση</div>
+                        <div class="text-lg font-light text-white">Ιακωβίδου 16, <br> Αθήνα 111 44</div>
+                    </div>
+
+                    <div class="glass-dark p-10 rounded-3xl flex flex-col items-center text-center group hover:bg-navy-900 transition-all">
+                        <div class="w-16 h-16 bg-accent-electric/10 rounded-2xl flex items-center justify-center text-accent-electric border border-accent-electric/20 mb-8 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <div class="text-xs uppercase tracking-widest text-accent-electric font-bold mb-3">Τηλέφωνο</div>
+                        <div class="text-lg font-light text-white">210 9646830</div>
+                    </div>
+
+                    <div class="glass-dark p-10 rounded-3xl flex flex-col items-center text-center group hover:bg-navy-900 transition-all">
+                        <div class="w-16 h-16 bg-accent-electric/10 rounded-2xl flex items-center justify-center text-accent-electric border border-accent-electric/20 mb-8 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <div class="text-xs uppercase tracking-widest text-accent-electric font-bold mb-3">Ωράριο</div>
+                        <div class="text-lg font-light text-white">Δευτέρα - Παρασκευή: <br> 09:00 - 20:00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-950 text-navy-400 py-20 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-accent-electric rounded-xl flex items-center justify-center text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16 20 20"/><path d="M2 20h20"/><path d="M7 20v-5"/><path d="M11 20v-7"/><path d="M15 20v-11"/><path d="M19 20v-3"/><path d="M22 10V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v16"/></svg>
+                    </div>
+                    <span class="font-display font-bold text-2xl text-white tracking-tight">Τάντης <span class="text-accent-electric">&</span> Συνεργάτες</span>
+                </div>
+                
+                <div class="flex gap-12 text-sm font-semibold uppercase tracking-widest">
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Cookies</a>
+                </div>
+
+                <div class="text-sm font-medium">
+                    © <span id="year"></span> Δικηγορικό Γραφείο Τάντη.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Update Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('glass', 'shadow-xl', 'py-3');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.remove('glass', 'shadow-xl', 'py-3');
+                navbar.classList.add('py-4');
+            }
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+            document.body.classList.toggle('overflow-hidden');
+        }
+    </script>
+</body>
+</html>
